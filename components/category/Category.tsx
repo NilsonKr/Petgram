@@ -2,17 +2,10 @@ import { CategoryItem } from "./categoryStyled";
 
 const DEFAULT_IMAGE = " https://i.imgur.com/dJa0Hpl.jpg";
 
-type props = {
-  image?: string;
-  emoji?: string;
-  category: string;
-  url: string;
-};
-
-const Category = ({ image = DEFAULT_IMAGE, emoji = "⛄", category }: props) => {
+const Category = ({ cover = DEFAULT_IMAGE, emoji = "⛄", name }: Tcategory) => {
   return (
     <CategoryItem>
-      <img src={image} alt={category} />
+      <img src={cover} alt={name} />
       <span>{emoji}</span>
     </CategoryItem>
   );

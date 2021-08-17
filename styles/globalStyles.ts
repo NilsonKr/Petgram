@@ -1,10 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  *{
+  html{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
 
   body{
@@ -17,6 +15,8 @@ export const GlobalStyles = createGlobalStyle`
 
   *, *:before, *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   ul {
@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #__next{
-    height: 100vh;
+    min-height: 100vh;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
   }
   ::-webkit-scrollbar {
