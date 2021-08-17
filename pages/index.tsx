@@ -1,9 +1,9 @@
-import React from "react";
+import CategoriesList from "../components/categoriesList/CategoriesList";
 
 const index = () => {
   return (
     <div>
-      <h1>Hello World</h1>
+      <CategoriesList />
     </div>
   );
 };
