@@ -1,10 +1,13 @@
 import { LogoStyled } from "./LogoStyled";
 
-const Logo = (props: any) => {
+type Tprops = {
+  height: number;
+  width: number;
+};
+
+const Logo = (props: Tprops) => {
   return (
     <LogoStyled
-      width={props.width}
-      height={props.height}
       viewBox="31.559 7.391 436.883 135.218"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -17,13 +20,13 @@ const Logo = (props: any) => {
       <defs>
         <linearGradient
           id="prefix__editing-halftone-gradient"
-          x1={0.479}
-          y1={0.201}
-          x2={0.521}
-          y2={0.799}
+          x1={0.632}
+          y1={0.77}
+          x2={0.368}
+          y2={0.23}
           gradientUnits="objectBoundingBox"
         >
-          <stop offset={0} stopColor="#ff0" stopOpacity={0.8} />
+          <stop offset={0} stopColor="#ffc500" stopOpacity={0.8} />
           <stop offset={0.5} stopColor="#f0f" stopOpacity={0.9} />
           <stop offset={1} stopColor="#0ff" />
         </linearGradient>

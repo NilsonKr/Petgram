@@ -5,7 +5,7 @@ import PhotosCardList from "components/photosCardList/PhotosCardList";
 const index = () => {
   return (
     <div>
-      <Logo width="400" height="200" />
+      <Logo width={320} height={150} />
       <CategoriesList />
       <PhotosCardList />
     </div>
