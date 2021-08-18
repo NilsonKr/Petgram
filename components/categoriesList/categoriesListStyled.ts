@@ -11,3 +11,11 @@ export const ListStyled = styled.ul`
 export const ItemStyled = styled.li`
   margin: 0 15px;
 `;
+
+export const PlaceholderStyled = styled.li`
+  width: 75px;
+  height: 75px;
+  margin: 0 15px;
+  border-radius: 50%;
+  background-color: lightgray;
+`;
