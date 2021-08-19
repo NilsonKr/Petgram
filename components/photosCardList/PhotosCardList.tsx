@@ -19,7 +19,7 @@ const PhotosCardList = () => {
   return (
     <PhotosListStyled>
       {items.map((card) => {
-        return <PhotoCard likes={card} key={card} />;
+        return <PhotoCard id={card} likes={card} key={card} />;
       })}
       {!items.length &&
         DEFAULT_ITEMS.map((key) => (
