@@ -5,7 +5,7 @@ import {
   FloatListStyled,
   PlaceholderStyled,
 } from "./categoriesListStyled";
-import useFloatList from "../../hooks/useFloatList";
+import useFloatList from "../../hooks/useIntersection";
 
 import Category from "../category/Category";
 
@@ -13,7 +13,7 @@ const DEFAULT_ITEMS = [1, 2, 3, 4, 5, 6];
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState<Tcategory[]>([]);
-  const [showFloat, elementRef] = useFloatList();
+  const [isAtTop, elementRef] = useFloatList();
 
   useEffect(() => {
     window
@@ -25,7 +25,7 @@ const CategoriesList = () => {
 
   return (
     <>
-      {showFloat && (
+      {!isAtTop && (
         <FloatListStyled>
           {categories.map((category: Tcategory) => (
             <ItemStyled key={category.id}>

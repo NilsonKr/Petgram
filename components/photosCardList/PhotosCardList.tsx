@@ -13,7 +13,7 @@ const PhotosCardList = () => {
   useEffect(() => {
     setTimeout(() => {
       setItems([1, 2, 3, 4, 5]);
-    }, 3000);
+    }, 1000);
   }, []);
 
   return (

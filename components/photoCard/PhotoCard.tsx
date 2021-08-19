@@ -1,3 +1,5 @@
+import useFloatList from "../../hooks/useIntersection";
+
 import { ImgWrapper, DetailsWrapper } from "./photoCardStyled";
 import { IoMdHeartEmpty } from "react-icons/io";
 
@@ -10,10 +12,12 @@ const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1520561805070-83c413349512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
 const PhotoCard = ({ likes, src = DEFAULT_IMAGE }: Tprops) => {
+  const [isIntersec, elRef] = useFloatList(true);
+
   return (
-    <article>
+    <article ref={elRef}>
       <ImgWrapper>
-        <img src={src} alt="Card" />
+        <img src={isIntersec ? src : ""} alt="Card" />
       </ImgWrapper>
       <DetailsWrapper>
         <IoMdHeartEmpty size="30px" />
