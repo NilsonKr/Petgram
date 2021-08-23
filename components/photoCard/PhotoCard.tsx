@@ -1,4 +1,4 @@
-import { useState } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import useFloatList from "../../hooks/useIntersection";
 
 import { ImgWrapper, DetailsWrapper } from "./photoCardStyled";
@@ -16,27 +16,10 @@ const DEFAULT_IMAGE =
 const PhotoCard = ({ id, likes, src = DEFAULT_IMAGE }: Tprops) => {
   const [isIntersec, elRef] = useFloatList(true);
   // is Liked ?
-  const [isLiked, toggleLike] = useState(() => {
-    try {
-      const foundLike = window.localStorage.getItem(`${id}`);
-
-      if (foundLike) {
-        return JSON.parse(foundLike);
-      }
-
-      return foundLike;
-    } catch (error) {
-      return false;
-    }
-  });
+  const [isLiked, toggleLike] = useLocalStorage(id);
 
   const like = () => {
-    try {
-      window.localStorage.setItem(`${id}`, `${!isLiked}`);
-      toggleLike(!isLiked);
-    } catch (error) {
-      console.log(error);
-    }
+    toggleLike(!isLiked);
   };
 
   return (
