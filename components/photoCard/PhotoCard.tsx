@@ -15,7 +15,6 @@ const DEFAULT_IMAGE =
 
 const PhotoCard = ({ id, likes, src = DEFAULT_IMAGE }: Tprops) => {
   const [isIntersec, elRef] = useFloatList(true);
-  // is Liked ?
   const [isLiked, toggleLike] = useLocalStorage(id);
 
   const like = () => {

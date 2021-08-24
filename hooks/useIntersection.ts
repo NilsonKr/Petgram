@@ -15,7 +15,7 @@ const useIntersectioon = (closeOnIntersec: boolean = false): returnValues => {
       setIntersec(true);
 
       if (closeOnIntersec) {
-        console.log("Disconnect!");
+        //Stop observe element
         currObserver?.disconnect();
       }
     } else {

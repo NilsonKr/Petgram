@@ -12,4 +12,5 @@ type TphotoCard = {
   src: string;
   userId: number;
   likes: number;
+  like: boolean;
 };
