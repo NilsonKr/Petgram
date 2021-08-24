@@ -10,8 +10,8 @@ import { IoMdHeartEmpty } from "react-icons/io";
 const DEFAULT_ITEMS = [1, 2, 3, 4, 5];
 
 const photosQuery = gql`
-  {
-    photos {
+  query photosList($categoryId: ID) {
+    photos(categoryId: $categoryId) {
       id
       src
       likes
@@ -23,7 +23,9 @@ const photosQuery = gql`
 `;
 
 const PhotosCardList = () => {
-  const { data, loading } = useQuery(photosQuery);
+  const { data, loading } = useQuery(photosQuery, {
+    variables: { categoryId: 1 },
+  });
 
   return (
     <PhotosListStyled>
