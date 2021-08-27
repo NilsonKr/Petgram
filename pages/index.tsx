@@ -1,23 +1,20 @@
 import { useRouter } from "next/router";
-import Logo from "../components/SVGS/Logo/Logo";
-import CategoriesList from "../components/categoriesList/CategoriesList";
+
 import PhotosCardList from "components/photosCardList/PhotosCardList";
 import PhotoCardContainer from "components/photoCard/PhotoCardContainer";
+import HomeLayout from "components/HomeLayout/HomeLayout";
 
 const index = () => {
   const { query } = useRouter();
 
   return (
-    <div>
-      <Logo width={320} height={150} />
-      <CategoriesList />
-
+    <HomeLayout>
       {query.photoId ? (
         <PhotoCardContainer photoId={query.photoId as string} />
       ) : (
-        <PhotosCardList />
+        <PhotosCardList categoryId="" />
       )}
-    </div>
+    </HomeLayout>
   );
 };
 

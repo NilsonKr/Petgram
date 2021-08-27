@@ -22,3 +22,14 @@ export const addLikeAnonymus = gql`
 		}
 	}
 `;
+
+export const getCategories = gql`
+	{
+		categories {
+			id
+			name
+			cover
+			emoji
+		}
+	}
+`;

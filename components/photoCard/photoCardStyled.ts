@@ -15,7 +15,7 @@ export const ImgWrapper = styled.div`
     border-radius: 10px;
     object-fit: cover;
     cursor: pointer;
-    background-color: aquamarine;
+    background-color: gray;
   }
 `;
 

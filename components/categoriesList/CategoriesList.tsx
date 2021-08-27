@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@apollo/client";
+import { getCategories } from "../../graphql/queries";
 import {
   ListStyled,
   ItemStyled,
@@ -12,39 +13,33 @@ import Category from "../category/Category";
 const DEFAULT_ITEMS = [1, 2, 3, 4, 5, 6];
 
 const CategoriesList = () => {
-  const [categories, setCategories] = useState<Tcategory[]>([]);
+  const { data, loading } =
+    useQuery<{ categories: Tcategory[] }>(getCategories);
   const [isAtTop, elementRef] = useFloatList();
-
-  useEffect(() => {
-    window
-      .fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`)
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <>
       {!isAtTop && (
         <FloatListStyled>
-          {categories.map((category: Tcategory) => (
-            <ItemStyled key={category.id}>
-              <Category {...category} />
-            </ItemStyled>
-          ))}
-          {!categories.length &&
+          {!loading &&
+            data!.categories.map((category: Tcategory) => (
+              <ItemStyled key={category.id}>
+                <Category {...category} />
+              </ItemStyled>
+            ))}
+          {loading &&
             DEFAULT_ITEMS.map((key) => <PlaceholderStyled key={key} />)}
         </FloatListStyled>
       )}
 
       <ListStyled ref={elementRef}>
-        {categories.map((category: Tcategory) => (
-          <ItemStyled key={category.id}>
-            <Category {...category} />
-          </ItemStyled>
-        ))}
-        {!categories.length &&
-          DEFAULT_ITEMS.map((key) => <PlaceholderStyled key={key} />)}
+        {!loading &&
+          data!.categories.map((category: Tcategory) => (
+            <ItemStyled key={category.id}>
+              <Category {...category} />
+            </ItemStyled>
+          ))}
+        {loading && DEFAULT_ITEMS.map((key) => <PlaceholderStyled key={key} />)}
       </ListStyled>
     </>
   );

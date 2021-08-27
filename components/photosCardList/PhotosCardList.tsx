@@ -10,9 +10,9 @@ import { IoMdHeartEmpty } from "react-icons/io";
 
 const DEFAULT_ITEMS = [1, 2, 3, 4, 5];
 
-const PhotosCardList = () => {
+const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
   const { data, loading } = useQuery(photosQuery, {
-    variables: { categoryId: 1 },
+    variables: { categoryId: categoryId },
   });
 
   return (
