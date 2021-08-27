@@ -19,6 +19,24 @@ export const ImgWrapper = styled.div`
   }
 `;
 
+export const ImgWrapperDetails = styled.div`
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  ${entranceAnimation({ duration: ".5s" })}
+
+  & img {
+    min-width: 100%;
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    vertical-align: middle;
+    object-fit: cover;
+    cursor: pointer;
+    background-color: gray;
+  }
+`;
+
 export const DetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;

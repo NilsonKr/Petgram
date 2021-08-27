@@ -4,7 +4,7 @@ import { photoDetail } from "../../graphql/queries";
 
 import HomeLayout from "components/HomeLayout/HomeLayout";
 
-import PhotoCard from "@components/photoCard/PhotoCard";
+import PhotoDetails from "@components/photoCard/PhotoDetails";
 import PhotoContainer from "HOC/PhotoContainer";
 
 const PhotoDetail = () => {
@@ -13,10 +13,8 @@ const PhotoDetail = () => {
     variables: { photoId: `${query.id}` },
   });
 
-  console.log(data);
-
   const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
-    return <PhotoCard {...photo} like={like} isLiked={isLiked} />;
+    return <PhotoDetails {...photo} like={like} isLiked={isLiked} />;
   };
 
   return (

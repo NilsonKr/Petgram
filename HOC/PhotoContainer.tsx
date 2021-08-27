@@ -16,15 +16,13 @@ const PhotoContainer: React.FC<Tprops> = (props) => {
   const [isLiked, toggleLike] = useLocalStorage(props.photo.id);
   const [addLike] = useMutation(addLikeAnonymus);
 
-  console.log(props.photo);
-
   const like = (evt: React.MouseEvent<any>) => {
     evt.stopPropagation();
+    //Update like in UI and Graphql API
     !isLiked &&
       addLike({ variables: { photoInput: { id: `${props.photo.id}` } } });
-    toggleLike(!isLiked);
 
-    console.log("Like");
+    toggleLike(!isLiked);
   };
 
   return props.render(props.photo, like, isLiked);
