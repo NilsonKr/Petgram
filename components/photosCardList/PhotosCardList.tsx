@@ -1,4 +1,5 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { photosQuery } from "../../graphql/queries";
 
 import PhotoCard from "../photoCard/PhotoCard";
 import Loader from "../Loader/Loader";
@@ -8,19 +9,6 @@ import { ImgWrapper, DetailsWrapper } from "../photoCard/photoCardStyled";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 const DEFAULT_ITEMS = [1, 2, 3, 4, 5];
-
-const photosQuery = gql`
-  query photosList($categoryId: ID) {
-    photos(categoryId: $categoryId) {
-      id
-      src
-      likes
-      liked
-      userId
-      categoryId
-    }
-  }
-`;
 
 const PhotosCardList = () => {
   const { data, loading } = useQuery(photosQuery, {

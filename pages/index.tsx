@@ -7,7 +7,6 @@ import PhotoCardContainer from "components/photoCard/PhotoCardContainer";
 const index = () => {
   const { query } = useRouter();
 
-  console.group(query);
   return (
     <div>
       <Logo width={320} height={150} />

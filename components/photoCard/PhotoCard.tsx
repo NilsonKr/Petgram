@@ -1,3 +1,5 @@
+import { useMutation } from "@apollo/client";
+import { addLikeAnonymus } from "../../graphql/queries";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import useFloatList from "../../hooks/useIntersection";
 
@@ -16,8 +18,10 @@ const DEFAULT_IMAGE =
 const PhotoCard = ({ id, likes, src = DEFAULT_IMAGE }: Tprops) => {
   const [isIntersec, elRef] = useFloatList(true);
   const [isLiked, toggleLike] = useLocalStorage(id);
+  const [addLike] = useMutation(addLikeAnonymus);
 
   const like = () => {
+    !isLiked && addLike({ variables: { photoInput: { id } } });
     toggleLike(!isLiked);
   };
 
