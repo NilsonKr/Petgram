@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { photosQuery } from "../../graphql/queries";
 
+import PhotoCardContainer from "../../HOC/PhotoContainer";
 import PhotoCard from "../photoCard/PhotoCard";
 import Loader from "../Loader/Loader";
 
@@ -15,11 +16,15 @@ const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
     variables: { categoryId: categoryId },
   });
 
+  const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
+    return <PhotoCard {...photo} like={like} isLiked={isLiked} />;
+  };
+
   return (
     <PhotosListStyled>
       {data &&
         data.photos.map((photo: TphotoCard) => (
-          <PhotoCard {...photo} key={photo.id} />
+          <PhotoCardContainer photo={photo} render={render} key={photo.id} />
         ))}
       {loading &&
         DEFAULT_ITEMS.map((key) => (
