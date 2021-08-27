@@ -33,3 +33,15 @@ export const getCategories = gql`
 		}
 	}
 `;
+
+export const photoDetail = gql`
+	query getPhotoDetail($photoId: ID!) {
+		photo(id: $photoId) {
+			src
+			likes
+			liked
+			userId
+			categoryId
+		}
+	}
+`;

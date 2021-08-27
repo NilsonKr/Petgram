@@ -18,9 +18,9 @@ const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
   return (
     <PhotosListStyled>
       {data &&
-        data.photos.map((photo: TphotoCard) => {
-          return <PhotoCard {...photo} key={photo.id} />;
-        })}
+        data.photos.map((photo: TphotoCard) => (
+          <PhotoCard {...photo} key={photo.id} />
+        ))}
       {loading &&
         DEFAULT_ITEMS.map((key) => (
           <article key={key}>

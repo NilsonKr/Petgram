@@ -7,7 +7,9 @@ const HomeLayout: React.FC = ({ children }) => {
   return (
     <>
       <Link href="/">
-        <Logo width={320} height={150} />
+        <section>
+          <Logo width={320} height={150} />
+        </section>
       </Link>
       <CategoriesList />
       {children}

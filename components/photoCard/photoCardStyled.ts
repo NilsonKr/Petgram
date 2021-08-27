@@ -21,18 +21,24 @@ export const ImgWrapper = styled.div`
 
 export const DetailsWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 5px 10px;
+  padding: 5px 15px;
   margin-bottom: 20px;
 
+  & section {
+    display: flex;
+    align-items: center;
+  }
+
   & span {
-    margin-left: 5px;
     font-size: 1.2rem;
     font-weight: 600;
   }
 
   & svg {
+    margin: 5px;
     cursor: pointer;
   }
 `;
