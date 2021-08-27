@@ -9,8 +9,21 @@ const PhotoDetail = () => {
     variables: { photoId: `${query.id}` },
   });
 
-  console.log(data);
-  return <HomeLayout>Photo with id: {query.id}</HomeLayout>;
+  //Render photo details view with like functionalities
+  // const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
+  //   return <PhotoDetails {...photo} like={like} isLiked={isLiked} />;
+  // };
+
+  // return (
+  //   <HomeLayout>
+  //     {data && (
+  //       <PhotoContainer
+  //         photo={{ ...data.photo, id: query.id as string }}
+  //         render={render}
+  //       ></PhotoContainer>
+  //     )}
+  //   </HomeLayout>
+  // );
 };
 
 export default PhotoDetail;
