@@ -1,9 +1,7 @@
-import Link from "next/link";
 import useIntersection from "../../hooks/useIntersection";
 
-import { ImgWrapper, DetailsWrapper } from "./photoCardStyled";
+import { ImgWrapperDetails, DetailsWrapper } from "./photoCardStyled";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import { CgDetailsMore } from "react-icons/cg";
 import { AiOutlineTag } from "react-icons/ai";
 
 type Tprops = {
@@ -14,23 +12,14 @@ type Tprops = {
   isLiked: boolean;
 };
 
-const DEFAULT_IMAGE =
-  "https://images.unsplash.com/photo-1520561805070-83c413349512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
-
-const PhotoCard = ({
-  id,
-  likes,
-  src = DEFAULT_IMAGE,
-  like,
-  isLiked,
-}: Tprops) => {
+const PhotoCard = ({ likes, src, like, isLiked }: Tprops) => {
   const [isIntersec, elRef] = useIntersection(true);
 
   return (
     <article ref={elRef}>
-      <ImgWrapper onDoubleClick={like}>
+      <ImgWrapperDetails onDoubleClick={like}>
         <img src={isIntersec ? src : ""} alt="Card" />
-      </ImgWrapper>
+      </ImgWrapperDetails>
       <DetailsWrapper>
         <section>
           {isLiked ? (
@@ -42,11 +31,6 @@ const PhotoCard = ({
         </section>
         <section>
           <AiOutlineTag size="30px" />
-          <Link href={`/photo/${id}`}>
-            <div>
-              <CgDetailsMore size="40px" />
-            </div>
-          </Link>
         </section>
       </DetailsWrapper>
     </article>

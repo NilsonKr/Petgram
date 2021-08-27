@@ -7,10 +7,12 @@ type Tcategory = {
 };
 
 type TphotoCard = {
-  id: number;
+  id: string;
   categoryId: number;
   src: string;
   userId: number;
   likes: number;
   like: boolean;
 };
+
+type TlikeFnProp = (evt: React.MouseEvent<any>) => void;
