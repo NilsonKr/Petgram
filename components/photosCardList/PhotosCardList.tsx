@@ -16,6 +16,7 @@ const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
     variables: { categoryId: categoryId },
   });
 
+  //prop to render photoCard thumbnail with like functionalities
   const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
     return <PhotoCard {...photo} like={like} isLiked={isLiked} />;
   };

@@ -4,4 +4,5 @@ export const PhotosListStyled = styled.section`
   margin-top: 15px;
   width: 100%;
   overflow-y: scroll;
+  padding-bottom: 40px;
 `;

@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import CategoriesList from "../categoriesList/CategoriesList";
+
 import Logo from "../SVGS/Logo/Logo";
+import CategoriesList from "../categoriesList/CategoriesList";
+import Navbar from "@components/Navbar/Navbar";
 
 const HomeLayout: React.FC = ({ children }) => {
   return (
@@ -13,6 +15,7 @@ const HomeLayout: React.FC = ({ children }) => {
       </Link>
       <CategoriesList />
       {children}
+      <Navbar />
     </>
   );
 };

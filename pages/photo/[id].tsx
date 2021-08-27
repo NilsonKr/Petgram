@@ -13,6 +13,7 @@ const PhotoDetail = () => {
     variables: { photoId: `${query.id}` },
   });
 
+  //Render photo details view with like functionalities
   const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
     return <PhotoDetails {...photo} like={like} isLiked={isLiked} />;
   };
