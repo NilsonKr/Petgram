@@ -1,6 +1,8 @@
 import { AppProps } from "next/app";
-import { GlobalStyles } from "../styles/globalStyles";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import AuthContext from "context/AuthContext";
+
+import { GlobalStyles } from "../styles/globalStyles";
 
 const apolloClient = new ApolloClient({
   uri: "https://petgram-api-kr.vercel.app/graphql",
@@ -10,8 +12,10 @@ const apolloClient = new ApolloClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={apolloClient}>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <AuthContext>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </AuthContext>
     </ApolloProvider>
   );
 }
