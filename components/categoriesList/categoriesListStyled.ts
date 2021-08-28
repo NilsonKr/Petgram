@@ -26,14 +26,16 @@ export const PlaceholderStyled = styled.li`
 export const FloatListStyled = styled.ul`
   display: flex;
   position: fixed;
-  top: -20px;
+  top: 0px;
+  left: 50%;
+  max-width: 100%;
   justify-content: start;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   overflow-x: scroll;
   border-radius: 50px;
   background-color: #fff;
-  transform: scale(0.6);
+  transform: translateX(-50%);
   z-index: 1;
 
   ${entranceAnimation({ duration: ".3s" })}

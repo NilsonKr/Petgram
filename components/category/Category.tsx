@@ -9,10 +9,11 @@ const Category = ({
   emoji = "⛄",
   name,
   id,
+  isFloat,
 }: Tcategory) => {
   return (
     <Link href={`/category/${id}`}>
-      <CategoryItem>
+      <CategoryItem isFloat={isFloat}>
         <img src={cover} alt={name} />
         <span>{emoji}</span>
       </CategoryItem>

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const CategoryItem = styled.div`
+export const CategoryItem = styled.div<{ isFloat: boolean }>`
   position: relative;
-  width: 75px;
-  height: 75px;
+  width: ${(p) => (p.isFloat ? "40px" : "75px")};
+  height: ${(p) => (p.isFloat ? "40px" : "75px")};
 
   img {
     width: 100%;
@@ -20,6 +20,6 @@ export const CategoryItem = styled.div`
     position: absolute;
     bottom: -5px;
     right: -5px;
-    font-size: 1.5rem;
+    font-size: ${(p) => (p.isFloat ? "1.2rem" : "1.5rem")};
   }
 `;

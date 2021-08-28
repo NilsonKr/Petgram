@@ -4,6 +4,7 @@ type Tcategory = {
   emoji?: string;
   name: string;
   path: string;
+  isFloat: boolean;
 };
 
 type TphotoCard = {

@@ -24,7 +24,7 @@ const CategoriesList = () => {
           {!loading &&
             data!.categories.map((category: Tcategory) => (
               <ItemStyled key={category.id}>
-                <Category {...category} />
+                <Category {...category} isFloat={true} />
               </ItemStyled>
             ))}
           {loading &&
