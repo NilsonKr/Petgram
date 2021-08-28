@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { MdHome, MdFavoriteBorder, MdPersonOutline } from "react-icons/md";
+import { MdHome, MdFavoriteBorder, MdPerson } from "react-icons/md";
 import { NavStyled } from "./navbarStyled";
 
 const HomeRoutes = ["/", "/category/[id]", "/photo/[id]"];
@@ -23,7 +23,7 @@ const Navbar = () => {
       </Link>
       <Link href="/profile">
         <article className={pathname.includes("profile") ? "selected" : ""}>
-          <MdPersonOutline size="32px" />
+          <MdPerson size="32px" />
         </article>
       </Link>
     </NavStyled>
