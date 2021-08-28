@@ -5,8 +5,8 @@ export const NotAuthenticatedStyled = styled.section`
   text-align: center;
 
   & img {
-    max-width: 300px;
-    max-height: 400px;
+    max-width: 250px;
+    max-height: 300px;
   }
 
   & h2 {
@@ -14,20 +14,15 @@ export const NotAuthenticatedStyled = styled.section`
     width: 80%;
     margin: 15px auto;
   }
+`;
 
-  & button {
-    margin-top: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: rgb(184, 24, 224);
-    color: white;
-    font-size: 1.7rem;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-  }
+export const ChangeFormSpan = styled.span`
+  color: #6b0086;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  cursor: pointer;
 
-  & button:hover {
-    box-shadow: 0px 0px 0 4px rgb(227, 113, 255);
+  &:hover {
+    color: #c377d6;
   }
 `;
