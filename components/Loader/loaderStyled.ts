@@ -17,7 +17,7 @@ export const LoaderStyled = styled.div<props>`
     ),
     lightgray;
   background-repeat: repeat-y;
-  background-size: 100px 200px;
+  background-size: 40px;
   background-position: -10% 0;
   ${skeletonAnimation({ duration: ".8s", type: "ease" })}
 `;

@@ -6,10 +6,11 @@ import HomeLayout from "components/HomeLayout/HomeLayout";
 
 import PhotoDetails from "@components/photoCard/PhotoDetails";
 import PhotoContainer from "HOC/PhotoContainer";
+import PhotoLoader from "@components/Loader/PhotoLoader";
 
 const PhotoDetail = () => {
   const { query } = useRouter();
-  const { data } = useQuery<{ photo: TphotoCard }>(photoDetail, {
+  const { data, loading } = useQuery<{ photo: TphotoCard }>(photoDetail, {
     variables: { photoId: `${query.id}` },
   });
 
@@ -26,6 +27,7 @@ const PhotoDetail = () => {
           render={render}
         ></PhotoContainer>
       )}
+      {loading && <PhotoLoader />}
     </HomeLayout>
   );
 };
