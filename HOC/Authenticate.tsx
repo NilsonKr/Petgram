@@ -6,7 +6,7 @@ import Navbar from "@components/Navbar/Navbar";
 import NotAuthenticated from "@components/NotAuthenticated/NotAuthenticated";
 
 const Authenticate = (WrappedPage: React.FC) => {
-  const isAuthenticate = true;
+  const isAuthenticate = false;
 
   return () => (
     <>

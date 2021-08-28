@@ -1,7 +1,13 @@
-import React from "react";
+import { NotAuthenticatedStyled } from "./NotAuthenticatedStyles";
 
 const NotAuthenticated = () => {
-  return <h1>Not Allowed :c</h1>;
+  return (
+    <NotAuthenticatedStyled>
+      <img src="/illustration1.png" alt="Cutie Cat" />
+      <h2>Seems like you dont have an account yet!</h2>
+      <button>Create One!</button>
+    </NotAuthenticatedStyled>
+  );
 };
 
 export default NotAuthenticated;
