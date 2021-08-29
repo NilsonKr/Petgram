@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const addLikeAnonymus = gql`
-  mutation likeAnonymousPhoto($photoInput: LikePhoto!) {
-    likeAnonymousPhoto(input: $photoInput) {
+export const addLikeMutation = gql`
+  mutation likePhotoUser($photoInput: LikePhoto!) {
+    likePhoto(input: $photoInput) {
       id
       liked
       likes

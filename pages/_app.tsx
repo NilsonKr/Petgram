@@ -1,13 +1,10 @@
 import { AppProps } from "next/app";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import apolloClient from "graphql/Client";
+
 import AuthContext from "context/AuthContext";
 
 import { GlobalStyles } from "../styles/globalStyles";
-
-const apolloClient = new ApolloClient({
-  uri: "https://petgram-api-kr.vercel.app/graphql",
-  cache: new InMemoryCache(),
-});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

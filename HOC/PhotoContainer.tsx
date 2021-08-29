@@ -1,31 +1,26 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { addLikeAnonymus } from "../graphql/mutations";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { addLikeMutation } from "../graphql/mutations";
+import handleAuthErrors from "../utils/handleAuthErrors";
 
 type Tprops = {
   photo: TphotoCard;
-  render: (
-    photo: TphotoCard,
-    like: TlikeFnProp,
-    isLiked: boolean
-  ) => JSX.Element;
+  render: (photo: TphotoCard, like: TlikeFnProp) => JSX.Element;
 };
 
 const PhotoContainer: React.FC<Tprops> = (props) => {
-  const [isLiked, toggleLike] = useLocalStorage(props.photo.id);
-  const [addLike] = useMutation(addLikeAnonymus);
+  const [addLike] = useMutation(addLikeMutation);
 
   const like = (evt: React.MouseEvent<any>) => {
     evt.stopPropagation();
     //Update like in UI and Graphql API
-    !isLiked &&
-      addLike({ variables: { photoInput: { id: `${props.photo.id}` } } });
 
-    toggleLike(!isLiked);
+    addLike({ variables: { photoInput: { id: `${props.photo.id}` } } }).catch(
+      (err) => handleAuthErrors(err)
+    );
   };
 
-  return props.render(props.photo, like, isLiked);
+  return props.render(props.photo, like);
 };
 
 export default PhotoContainer;

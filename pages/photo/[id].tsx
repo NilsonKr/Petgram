@@ -15,8 +15,8 @@ const PhotoDetail = () => {
   });
 
   //Render photo details view with like functionalities
-  const render = (photo: TphotoCard, like: TlikeFnProp, isLiked: boolean) => {
-    return <PhotoDetails {...photo} like={like} isLiked={isLiked} />;
+  const render = (photo: TphotoCard, like: TlikeFnProp) => {
+    return <PhotoDetails {...photo} like={like} />;
   };
 
   return (

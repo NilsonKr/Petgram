@@ -13,7 +13,7 @@ type TphotoCard = {
   src: string;
   userId: number;
   likes: number;
-  like: boolean;
+  liked: boolean;
 };
 
 type TlikeFnProp = (evt: React.MouseEvent<any>) => void;

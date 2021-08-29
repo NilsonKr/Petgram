@@ -9,10 +9,10 @@ type Tprops = {
   src?: string;
   likes: number;
   like: TlikeFnProp;
-  isLiked: boolean;
+  liked: boolean;
 };
 
-const PhotoCard = ({ likes, src, like, isLiked }: Tprops) => {
+const PhotoCard = ({ likes, src, like, liked }: Tprops) => {
   const [isIntersec, elRef] = useIntersection(true);
 
   return (
@@ -22,7 +22,7 @@ const PhotoCard = ({ likes, src, like, isLiked }: Tprops) => {
       </ImgWrapperDetails>
       <DetailsWrapper>
         <section>
-          {isLiked ? (
+          {liked ? (
             <IoMdHeart size="30px" onClick={like} />
           ) : (
             <IoMdHeartEmpty size="30px" onClick={like} />

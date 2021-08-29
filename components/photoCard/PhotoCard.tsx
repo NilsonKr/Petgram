@@ -11,19 +11,13 @@ type Tprops = {
   src?: string;
   likes: number;
   like: TlikeFnProp;
-  isLiked: boolean;
+  liked: boolean;
 };
 
 const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1520561805070-83c413349512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
-const PhotoCard = ({
-  id,
-  likes,
-  src = DEFAULT_IMAGE,
-  like,
-  isLiked,
-}: Tprops) => {
+const PhotoCard = ({ id, likes, src = DEFAULT_IMAGE, like, liked }: Tprops) => {
   const [isIntersec, elRef] = useIntersection(true);
 
   return (
@@ -33,7 +27,7 @@ const PhotoCard = ({
       </ImgWrapper>
       <DetailsWrapper>
         <section>
-          {isLiked ? (
+          {liked ? (
             <IoMdHeart size="30px" onClick={like} />
           ) : (
             <IoMdHeartEmpty size="30px" onClick={like} />
