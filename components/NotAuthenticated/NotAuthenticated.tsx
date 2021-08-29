@@ -49,7 +49,11 @@ const NotAuthenticated = () => {
           ? "Have an account already? Log In"
           : "Join us! Create One"}
       </ChangeFormSpan>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && (
+        <ErrorMessage>
+          Wrong Information ! Check all the fields and try again.
+        </ErrorMessage>
+      )}
     </NotAuthenticatedStyled>
   );
 };

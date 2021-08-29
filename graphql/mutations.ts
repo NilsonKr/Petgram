@@ -12,7 +12,7 @@ export const addLikeAnonymus = gql`
 
 export const registerMutation = gql`
   mutation doSignup($signupInput: UserCredentials!) {
-    login(input: $signupInput)
+    signup(input: $signupInput)
   }
 `;
 

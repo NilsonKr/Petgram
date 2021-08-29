@@ -24,18 +24,21 @@ const AuthContext: React.FC = ({ children }) => {
   const makeAuthentication = (values: FormValues, type: string) => {
     setError(false);
 
+    //Do signup or login requets
     if (type === "signup") {
-      register({ variables: { signupInput: values } }).catch(
-        (err: ApolloError) => {
+      register({ variables: { signupInput: values } })
+        .then(() => setAuth(true))
+        .catch((err: ApolloError) => {
           console.log(err);
           setError(err.message);
-        }
-      );
+        });
     } else {
-      login({ variables: { loginInput: values } }).catch((err: ApolloError) => {
-        console.log(err);
-        setError(err.message);
-      });
+      login({ variables: { loginInput: values } })
+        .then(() => setAuth(true))
+        .catch((err: ApolloError) => {
+          console.log(err);
+          setError(err.message);
+        });
     }
   };
 
