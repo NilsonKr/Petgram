@@ -30,6 +30,10 @@ export const FieldStyled = styled.label`
   & input::placeholder {
     color: rgb(180, 180, 180);
   }
+
+  & input:disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -45,5 +49,9 @@ export const SubmitButton = styled.button`
 
   &:hover {
     box-shadow: 0px 0px 0 4px rgb(227, 113, 255);
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 `;

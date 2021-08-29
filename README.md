@@ -1,2 +1,3 @@
 # Michits
-Social media app to share cat's stuff 🙀🐱‍👤
+
+Social media app to share pet's stuff 🙀🐱‍👤

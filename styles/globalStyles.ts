@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   html{
@@ -46,5 +46,12 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: #999999;
   }
+`;
 
+export const ErrorMessage = styled.p`
+  margin: 15px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-style: italic;
+  color: red;
 `;
