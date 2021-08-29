@@ -17,3 +17,10 @@ type TphotoCard = {
 };
 
 type TlikeFnProp = (evt: React.MouseEvent<any>) => void;
+
+type TauthToken = {
+  login?: string;
+  signup?: string;
+};
+
+type TauthFecthResult = import("@apollo/client").FetchResult<TauthToken>;

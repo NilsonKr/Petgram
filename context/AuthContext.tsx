@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import useSessionStorage from "hooks/useSessionStorage";
 import { useMutation, ApolloError } from "@apollo/client";
 import { registerMutation, loginMutation } from "../graphql/mutations";
 
 type FormValues = { [key: string]: string };
 
 type TauthContext = {
-  isAuth: boolean;
+  isAuth: boolean | string;
   setAuth: (values: FormValues, type: string) => void;
   loading: boolean;
   error: string | boolean;
@@ -14,7 +15,7 @@ type TauthContext = {
 export const Context = React.createContext<Partial<TauthContext>>({});
 
 const AuthContext: React.FC = ({ children }) => {
-  const [isAuth, setAuth] = useState(false);
+  const [isAuth, setAuth] = useSessionStorage("token");
   const [isError, setError] = useState<boolean | string>(false);
   // Login and Signup mutations
   const [register, { loading: loginLoad }] = useMutation(registerMutation);
@@ -27,14 +28,14 @@ const AuthContext: React.FC = ({ children }) => {
     //Do signup or login requets
     if (type === "signup") {
       register({ variables: { signupInput: values } })
-        .then(() => setAuth(true))
+        .then(({ data }: TauthFecthResult) => setAuth(data!.signup))
         .catch((err: ApolloError) => {
           console.log(err);
           setError(err.message);
         });
     } else {
       login({ variables: { loginInput: values } })
-        .then(() => setAuth(true))
+        .then(({ data }: TauthFecthResult) => setAuth(data!.login))
         .catch((err: ApolloError) => {
           console.log(err);
           setError(err.message);
