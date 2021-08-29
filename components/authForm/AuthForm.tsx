@@ -5,7 +5,7 @@ import { FormStyled, FieldStyled, SubmitButton } from "./AuthFormStyled";
 
 type props = {
   type: string;
-  submitAuth: () => void;
+  submitAuth: (evt: React.FormEvent, values: any) => void;
 };
 
 const AuthForm = ({ type, submitAuth }: props) => {
@@ -16,7 +16,7 @@ const AuthForm = ({ type, submitAuth }: props) => {
   };
 
   return (
-    <FormStyled>
+    <FormStyled onSubmit={(evt) => submitAuth(evt, formValues)}>
       {type === "signup" && (
         <FieldStyled>
           UserName
@@ -49,12 +49,7 @@ const AuthForm = ({ type, submitAuth }: props) => {
           value={formValues.password || ""}
         />
       </FieldStyled>
-      <SubmitButton
-        onClick={(ev) => {
-          ev.preventDefault();
-          console.log(formValues);
-        }}
-      >
+      <SubmitButton>
         {type === "signup" ? "Create One!" : "Sign In"}
       </SubmitButton>
     </FormStyled>

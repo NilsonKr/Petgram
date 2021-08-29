@@ -9,7 +9,7 @@ import NotAuthenticated from "@components/NotAuthenticated/NotAuthenticated";
 const Authenticate =
   (WrappedPage: React.FC): React.FC =>
   () => {
-    const { isAuth, setAuth } = useContext(Context);
+    const { isAuth } = useContext(Context);
 
     return (
       <>
@@ -18,7 +18,7 @@ const Authenticate =
             <Logo width={320} height={150} />
           </div>
         </Link>
-        {isAuth ? <WrappedPage /> : <NotAuthenticated setAuth={setAuth!} />}
+        {isAuth ? <WrappedPage /> : <NotAuthenticated />}
         <Navbar />
       </>
     );

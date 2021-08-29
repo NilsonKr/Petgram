@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { addLikeAnonymus } from "../graphql/queries";
+import { addLikeAnonymus } from "../graphql/mutations";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 type Tprops = {

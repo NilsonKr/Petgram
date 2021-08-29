@@ -1,17 +1,29 @@
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { registerMutation, loginMutation } from "../graphql/mutations";
+
+type FormValues = { [key: string]: string };
 
 type TauthContext = {
   isAuth: boolean;
-  setAuth: () => void;
+  setAuth: (values: FormValues, type: string) => void;
 };
 
 export const Context = React.createContext<Partial<TauthContext>>({});
 
 const AuthContext: React.FC = ({ children }) => {
   const [isAuth, setAuth] = useState(false);
+  const [register] = useMutation(registerMutation);
+  const [login] = useMutation(loginMutation);
 
-  const makeAuthentication = () => {
-    setAuth(true);
+  const makeAuthentication = (values: FormValues, type: string) => {
+    if (type === "signup") {
+      register({ variables: { signupInput: values } });
+    } else {
+      login({ variables: { loginInput: values } }).then((data) =>
+        console.log(data)
+      );
+    }
   };
 
   return (
