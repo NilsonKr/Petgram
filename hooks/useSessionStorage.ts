@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type returnValues = [string | boolean, (newValue: any) => void];
+type returnValues = [string | boolean, (newValue: any) => void, () => void];
 
 const useSessionStorage = (item: string): returnValues => {
   const [itemValue, setItem] = useState(() => {
@@ -20,7 +20,13 @@ const useSessionStorage = (item: string): returnValues => {
     setItem(newValue);
   };
 
-  return [itemValue, setItemInStorage];
+  //Remove item
+  const removeItem = () => {
+    window.sessionStorage.removeItem(item);
+    setItem(false);
+  };
+
+  return [itemValue, setItemInStorage, removeItem];
 };
 
 export default useSessionStorage;

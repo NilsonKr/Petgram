@@ -8,6 +8,7 @@ type FormValues = { [key: string]: string };
 type TauthContext = {
   isAuth: boolean | string;
   setAuth: (values: FormValues, type: string) => void;
+  logout: () => void;
   loading: boolean;
   error: string | boolean;
 };
@@ -15,7 +16,7 @@ type TauthContext = {
 export const Context = React.createContext<Partial<TauthContext>>({});
 
 const AuthContext: React.FC = ({ children }) => {
-  const [isAuth, setAuth] = useSessionStorage("token");
+  const [isAuth, setAuth, logout] = useSessionStorage("token");
   const [isError, setError] = useState<boolean | string>(false);
   // Login and Signup mutations
   const [register, { loading: loginLoad }] = useMutation(registerMutation);
@@ -48,6 +49,7 @@ const AuthContext: React.FC = ({ children }) => {
       value={{
         isAuth,
         setAuth: makeAuthentication,
+        logout: logout,
         loading: registerLoad || loginLoad,
         error: isError,
       }}
