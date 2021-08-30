@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NotAuthenticatedStyled = styled.section`
+export const NotAuthenticatedStyled = styled.div`
   width: 100%;
   text-align: center;
 

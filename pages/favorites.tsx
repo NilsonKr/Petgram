@@ -1,12 +1,44 @@
-import React from "react";
+import { useQuery } from "@apollo/client";
+import Link from "next/link";
 
+import { getFavs } from "../graphql/queries";
 import Authenticate from "HOC/Authenticate";
 
+import Loader from "@components/Loader/Loader";
+import {
+  FavThumbnail,
+  FavLists,
+} from "@components/FavPhotoThumbnail/FavPhotoStyled";
+
 const favorites = () => {
+  const { data, loading, error } = useQuery(getFavs, {
+    fetchPolicy: "cache-and-network",
+  });
+
   return (
-    <div>
-      <h1>You are in your favorites section! </h1>
-    </div>
+    <FavLists>
+      {data &&
+        data.favs.map((fav: TphotoCard) => (
+          <Link href={`/photo/${fav.id}`} key={fav.id}>
+            <FavThumbnail>
+              <img src={fav.src} alt="Favorite" />
+            </FavThumbnail>
+          </Link>
+        ))}
+      {loading && (
+        <>
+          <FavThumbnail>
+            <Loader width="150px" height="150px" />
+          </FavThumbnail>
+          <FavThumbnail>
+            <Loader width="150px" height="150px" />
+          </FavThumbnail>
+          <FavThumbnail>
+            <Loader width="150px" height="150px" />
+          </FavThumbnail>
+        </>
+      )}
+    </FavLists>
   );
 };
 

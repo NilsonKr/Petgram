@@ -36,3 +36,16 @@ export const photoDetail = gql`
     }
   }
 `;
+
+export const getFavs = gql`
+  {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      liked
+      userId
+    }
+  }
+`;
