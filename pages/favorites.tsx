@@ -5,13 +5,10 @@ import { getFavs } from "../graphql/queries";
 import Authenticate from "HOC/Authenticate";
 
 import Loader from "@components/Loader/Loader";
-import {
-  FavThumbnail,
-  FavLists,
-} from "@components/FavPhotoThumbnail/FavPhotoStyled";
+import { FavThumbnail, FavLists } from "styles/Favorites/FavPhotoStyled";
 
 const favorites = () => {
-  const { data, loading, error } = useQuery(getFavs, {
+  const { data, loading } = useQuery(getFavs, {
     fetchPolicy: "cache-and-network",
   });
 

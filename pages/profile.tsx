@@ -3,14 +3,19 @@ import { Context } from "../context/AuthContext";
 
 import Authenticate from "HOC/Authenticate";
 
+import {
+  LogOutButton,
+  ProfileContainer,
+} from "../styles/Profile/profileStyled";
+
 const profile = () => {
   const { logout } = useContext(Context);
 
   return (
-    <div>
+    <ProfileContainer>
       <h1>You are on your Profile!!</h1>
-      <button onClick={logout}>Log Out</button>
-    </div>
+      <LogOutButton onClick={logout}>Log Out</LogOutButton>
+    </ProfileContainer>
   );
 };
 
