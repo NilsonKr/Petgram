@@ -16,6 +16,10 @@ type TphotoCard = {
   liked: boolean;
 };
 
+type TCategoriesSSR = {
+  categories: any[];
+};
+
 type TlikeFnProp = (evt: React.MouseEvent<any>) => void;
 
 type TauthToken = {

@@ -18,7 +18,7 @@ const authLink = setContext((_, { headers }) => {
 
 const apolloClient = new ApolloClient({
   uri: "https://petgram-api-kr.vercel.app/graphql",
-  link: authLink.concat(apolloLink),
+  link: typeof window === "undefined" ? undefined : authLink.concat(apolloLink),
   cache: new InMemoryCache(),
 });
 

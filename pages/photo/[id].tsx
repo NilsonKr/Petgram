@@ -1,6 +1,8 @@
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { photoDetail } from "../../graphql/queries";
+import apolloClient from "graphql/Client";
+import { photoDetail, getCategories } from "../../graphql/queries";
 
 import HomeLayout from "components/HomeLayout/HomeLayout";
 
@@ -8,7 +10,21 @@ import PhotoDetails from "@components/photoCard/PhotoDetails";
 import PhotoContainer from "HOC/PhotoContainer";
 import PhotoLoader from "@components/Loader/PhotoLoader";
 
-const PhotoDetail = () => {
+export const getServerSideProps: GetServerSideProps = async (_) => {
+  const { data } = await apolloClient.query({ query: getCategories });
+
+  return {
+    props: {
+      categoriesData: data,
+    },
+  };
+};
+
+const PhotoDetail = ({
+  categoriesData,
+}: {
+  categoriesData: TCategoriesSSR;
+}) => {
   const { query } = useRouter();
   const { data, loading } = useQuery<{ photo: TphotoCard }>(photoDetail, {
     variables: { photoId: `${query.id}` },
@@ -20,7 +36,7 @@ const PhotoDetail = () => {
   };
 
   return (
-    <HomeLayout>
+    <HomeLayout data={categoriesData.categories}>
       {data && (
         <PhotoContainer
           photo={{ ...data.photo, id: query.id as string }}

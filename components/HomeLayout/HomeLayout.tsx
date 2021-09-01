@@ -5,7 +5,9 @@ import Logo from "../SVGS/Logo/Logo";
 import CategoriesList from "../categoriesList/CategoriesList";
 import Navbar from "@components/Navbar/Navbar";
 
-const HomeLayout: React.FC = ({ children }) => {
+type Props = { data: any[] };
+
+const HomeLayout: React.FC<Props> = ({ children, data }) => {
   return (
     <>
       <Link href="/">
@@ -13,7 +15,7 @@ const HomeLayout: React.FC = ({ children }) => {
           <Logo width={320} height={150} />
         </section>
       </Link>
-      <CategoriesList />
+      <CategoriesList data={data} />
       {children}
       <Navbar />
     </>
