@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps = async (_) => {
 };
 
 const index = ({ categoriesData }: { categoriesData: TCategoriesSSR }) => {
-  console.log(categoriesData);
   return (
     <>
       <Head>

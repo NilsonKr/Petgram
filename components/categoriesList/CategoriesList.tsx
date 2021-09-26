@@ -10,8 +10,6 @@ import Category from "../category/Category";
 const CategoriesList = ({ data }: { data: any[] }) => {
   const [isAtTop, elementRef] = useFloatList();
 
-  console.log(isAtTop);
-
   return (
     <>
       {!isAtTop && (
