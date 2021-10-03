@@ -7,6 +7,8 @@ import useFloatList from "../../hooks/useIntersection";
 
 import Category from "../category/Category";
 
+import PropTypes from "prop-types";
+
 const CategoriesList = ({ data }: { data: any[] }) => {
   const [isAtTop, elementRef] = useFloatList();
 
@@ -31,6 +33,10 @@ const CategoriesList = ({ data }: { data: any[] }) => {
       </ListStyled>
     </>
   );
+};
+
+CategoriesList.propTypes = {
+  data: PropTypes.array,
 };
 
 export default CategoriesList;

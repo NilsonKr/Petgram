@@ -4,6 +4,8 @@ import { ImgWrapperDetails, DetailsWrapper } from "./photoCardStyled";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { AiOutlineTag } from "react-icons/ai";
 
+import PropTypes from "prop-types";
+
 type Tprops = {
   id: number | string;
   src?: string;
@@ -12,7 +14,7 @@ type Tprops = {
   liked: boolean;
 };
 
-const PhotoCard = ({ likes, src, like, liked }: Tprops) => {
+const PhotoCardDetails = ({ likes, src, like, liked }: Tprops) => {
   const [isIntersec, elRef] = useIntersection(true);
 
   return (
@@ -37,4 +39,11 @@ const PhotoCard = ({ likes, src, like, liked }: Tprops) => {
   );
 };
 
-export default PhotoCard;
+PhotoCardDetails.propTypes = {
+  likes: PropTypes.number,
+  src: PropTypes.string,
+  like: PropTypes.func,
+  liked: PropTypes.bool,
+};
+
+export default PhotoCardDetails;

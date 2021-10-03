@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { CategoryItem } from "./categoryStyled";
 
+import Proptypes from "prop-types";
+
 const DEFAULT_IMAGE = " https://i.imgur.com/dJa0Hpl.jpg";
 
 const Category = ({
@@ -19,6 +21,14 @@ const Category = ({
       </CategoryItem>
     </Link>
   );
+};
+
+Category.propTypes = {
+  id: Proptypes.string,
+  name: Proptypes.string,
+  emoji: Proptypes.string,
+  cover: Proptypes.string,
+  isFloat: Proptypes.bool,
 };
 
 export default Category;

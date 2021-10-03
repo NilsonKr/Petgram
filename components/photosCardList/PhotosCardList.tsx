@@ -7,6 +7,8 @@ import PhotoCardLoader from "../Loader/PhotoLoader";
 
 import { PhotosListStyled } from "./PhotosListStyled";
 
+import PropTypes from "prop-types";
+
 const DEFAULT_ITEMS = [1, 2, 3, 4, 5];
 
 const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
@@ -28,6 +30,10 @@ const PhotosCardList = ({ categoryId }: { categoryId: string }) => {
       {loading && DEFAULT_ITEMS.map((key) => <PhotoCardLoader key={key} />)}
     </PhotosListStyled>
   );
+};
+
+PhotosCardList.propTypes = {
+  categoryId: PropTypes.string,
 };
 
 export default PhotosCardList;
