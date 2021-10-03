@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { entranceAnimation } from "../../styles/animations";
 
-export const ListStyled = styled.ul`
+export const ListStyled = styled.ul.attrs({ "aria-label": "true" })`
   display: flex;
   top: 20px;
   justify-content: start;

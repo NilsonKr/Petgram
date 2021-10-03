@@ -1,5 +1,5 @@
 type Tcategory = {
-  id: number;
+  id: number | string;
   cover?: string;
   emoji?: string;
   name: string;

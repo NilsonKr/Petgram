@@ -8,6 +8,7 @@ type Tprops = {
 const Logo = (props: Tprops) => {
   return (
     <LogoStyled
+      aria-label="Petgram logo"
       viewBox="31.559 7.391 436.883 135.218"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

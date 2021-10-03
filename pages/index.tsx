@@ -1,11 +1,11 @@
 import { GetServerSideProps } from "next";
-import apolloClient from "graphql/Client";
+import apolloClient from "../graphql/Client";
 import { getCategories } from "../graphql/queries";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
-import PhotosCardList from "components/photosCardList/PhotosCardList";
-import HomeLayout from "components/HomeLayout/HomeLayout";
+import PhotosCardList from "@components/photosCardList/PhotosCardList";
+import HomeLayout from "@components/HomeLayout/HomeLayout";
 
 export const getServerSideProps: GetServerSideProps = async (_) => {
   const { data } = await apolloClient.query({ query: getCategories });

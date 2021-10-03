@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 type returnValues = [boolean, React.RefObject<HTMLUListElement>];
 
-const useIntersectioon = (closeOnIntersec: boolean = false): returnValues => {
+const useIntersection = (closeOnIntersec: boolean = false): returnValues => {
   const floatElement = useRef<HTMLUListElement>(null);
   const [isIntersec, setIntersec] = useState(false);
   // const [observer, setObserver] = useState<IntersectionObserver | null>(null);
@@ -35,4 +35,4 @@ const useIntersectioon = (closeOnIntersec: boolean = false): returnValues => {
   return [isIntersec, floatElement];
 };
 
-export default useIntersectioon;
+export default useIntersection;
