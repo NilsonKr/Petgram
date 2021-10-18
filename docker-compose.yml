@@ -10,3 +10,10 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+  test:
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    environment:
+      - CI=true
+    command: yarn test
